@@ -1,0 +1,14 @@
+# Site settings
+title: Lucerne
+description: A web framework for Common Lisp
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+# Links
+crane: <a href="http://eudoxia0.github.io/crane/">Crane</a>
+postmodern: <a href="http://marijnhaverbeke.nl/postmodern/">Postmodern</a>
+wookie: <a href="http://wookie.beeets.com/">Wookie</a>
+hunchentoot: <a href="http://weitz.de/hunchentoot/">Hunchentoot</a>

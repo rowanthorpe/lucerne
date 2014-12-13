@@ -1,0 +1,114 @@
+---
+---
+
+@charset "utf-8";
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+/* Mixins */
+
+@mixin border-radius($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/* Variables */
+
+$font-default: 'Cardo', serif;
+$font-color: #222;
+$link-color: #AD3108;
+$navbar-height: 60px;
+$navbar-color: #fff;
+$navbar-elem-margin: 16px;
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Cardo&subset=latin,greek-ext);
+
+body {
+  font-family: $font-default;
+  color: $font-color;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link style */
+
+a:link, a:visited, a:hover, a:active {
+    color: $link-color;
+    text-decoration: none;
+}
+
+/* Navigation bar style */
+
+nav {
+  height: $navbar-height;
+  background: $navbar-color;
+
+  #nav-container {
+    width: 70%;
+    margin: 0 auto;
+
+    #brand {
+      margin-top: $navbar-elem-margin;
+      float: left;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: $navbar-elem-margin;
+      float: right;
+
+      li {
+        display: inline-block;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+/* Home page header style */
+
+header#home-header {
+  height: 220px;
+  background: radial-gradient(ellipse farthest-side at 100% 100% , #F8FFF3 10%, #85D8CE 50%, #085078 120%) repeat scroll 0% 0% transparent;
+  overflow: auto;
+
+  color: #fff;
+
+  div {
+    width: 40%;
+    margin: 35px auto;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 300%;
+    margin: 0;
+  }
+}
+
+/* Home page description style */
+
+#description {
+  p {
+    width: 70%;
+    margin: 25px auto;
+    font-size: 34px;
+  }
+
+  #features {
+    
+
+
+    #code-blocks {
+      @include outer-container;
+      pre { @include span-columns(6); }
+    }
+  }
+}
+
+/* Import the OS X window title bar thing */
+@import "window-border";

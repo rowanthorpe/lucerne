@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<header id="home-header">
+  <div>
+    <h1>Lucerne</h1>
+    <span>build modern web applications with Common Lisp</span>
+  </div>
+</header>
+<section id="description">
+  <p>
+    Lucerne is a web framework for Common Lisp. It is inspired by <a href="http://flask.pocoo.org/">Flask</a>, and built on top of <a href="https://github.com/fukamachi/clack">Clack</a>.
+  </p>
+  <div id="features">
+    <div>
+      <span class="tagline">Lucerne is <span class="attribute">simple</span></span>
+      <p>
+        Views are functions. Apps map URLs to functions. Requests are function
+        calls, and responses are their result. That's it.
+      </p>
+      <div id="code-blocks">
+        <pre>
+          <code class="lisp">
+;; Name this file `myapp.lisp`
+(use-package :lucerne)      ;; Import the `lucerne` module
+(annot:enable-annot-syntax) ;; Enable the decorator pattern
+
+(defapp app)
+
+@route app "/"
+(defview index ()
+  (respond "Hello, world!"))
+
+@route app "/greet/:name"
+(defview greet (name)
+  (respond (format nil "Hello, ~A!" name)))
+          </code>
+        </pre>
+        <pre>
+          <code class="lisp">
+;; Now, from a Lisp REPL, we load Lucerne and then our app
+cl-user> (ql:quickload :lucerne)
+cl-user> (load "myapp.lisp")
+cl-user> (lucerne:start 'myapp::app)
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <span class="tagline">Lucerne is <span class="attribute">small</span></span>
+      <p>
+        With less than 200 SLOC and just 15 exported symbols, Lucerne is small
+        enough to be understood and used productively in no time.
+      </p>
+    </div>
+    <div>
+      <span class="tagline">Lucerne is <span class="attribute">flexible</span></span>
+      <p>
+        It's not tied to an ORM or a web server. You can use {{ site.crane }} or
+        {{ site.postmodern }} to talk to your database, {{ site.wookie }} for an
+        asynchronous server or {{ site.hunchentoot }} for a traditional one.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="examples">
+  <h1>Examples</h1>
+  <div class="example">
+    <h2>μtweet</h2>
+    <div class="window">
+      <div class="bar">
+        <ul>
+          <li><div class="close circle"></div></li>
+          <li><div class="minimize circle"></div></li>
+          <li><div class="maximize circle"></div></li>
+        </ul>
+      </div>
+      <div class="content">
+        <a href="{{ "/assets/img/utweet.png" | prepend: site.baseurl }}">
+          <img src="{{ "/assets/img/utweet.png" | prepend: site.baseurl }}">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="crane">
+  <h1>Need an ORM? Try {{ link.crane }}</h1>
+</section>
+<section id="admin">
+  <h1><a href="http://eudoxia0.github.io/zenith/">Zenith</a>: Simple administration, built for Lucerne</h1>
+</section>
